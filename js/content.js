@@ -88,14 +88,6 @@ const parsers = {
     return null;
   },
   
-  'youtube.com': function() {
-    const title = document.querySelector('h1.ytd-video-primary-info-renderer, h1 yt-formatted-string');
-    if (title) {
-      const videoTitle = title.textContent.trim();
-      return `[YouTube - ${videoTitle}](${window.location.href})`;
-    }
-    return null;
-  },
   
   'medium.com': function() {
     const title = document.querySelector('h1');
