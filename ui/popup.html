@@ -11,7 +11,28 @@
       background: white;
     }
     
+    .menu-item-container {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid #e0e0e0;
+      background: white;
+    }
+
     .menu-item {
+      flex: 3;
+      padding: 16px 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.2s;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .menu-item:not(.menu-item-container .menu-item) {
       width: 100%;
       padding: 16px 20px;
       background: white;
@@ -23,13 +44,36 @@
       display: flex;
       align-items: center;
       transition: background-color 0.2s;
+      border-radius: 4px;
+    }
+    
+    .menu-item:not(.menu-item-container .menu-item):hover {
+      background: #f5f5f5;
     }
     
     .menu-item:hover {
       background: #f5f5f5;
     }
     
-    .menu-item:last-child {
+    .side-button {
+      flex: 1;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 4px 4px 0;
+      transition: background-color 0.2s;
+      min-height: 48px;
+    }
+    
+    .side-button:hover {
+      background: rgba(244, 67, 54, 0.1);
+    }
+    
+    .menu-item:last-child, .menu-item-container:last-child {
       border-bottom: none;
     }
     
@@ -66,15 +110,31 @@
   </style>
 </head>
 <body>
-  <button id="copyCurrentBtn" class="menu-item">
-    <span class="menu-icon">📋</span>
-    <span class="menu-text">Copy Current Page</span>
-  </button>
+  <div class="menu-item-container">
+    <button id="copyCurrentBtn" class="menu-item">
+      <span class="menu-icon">📋</span>
+      <span class="menu-text">Copy</span>
+    </button>
+    <button id="copyAndCloseBtn" class="side-button">❌</button>
+  </div>
   
   <button id="openCopyPageBtn" class="menu-item">
     <span class="menu-icon">🔗</span>
     <span class="menu-text">Open Copy Page</span>
   </button>
+  
+  <div class="menu-item-container">
+    <button id="copyTodoBtn" class="menu-item">
+      <span class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1024 1024">
+          <path d="M232.533333 345.6l324.266667 320c17.066667 17.066667 17.066667 42.666667 0 59.733333l-117.333333 115.2c-17.066667 17.066667-42.666667 17.066667-59.733334 0l-324.266666-320c-17.066667-17.066667-17.066667-42.666667 0-59.733333l117.333333-115.2c14.933333-17.066667 42.666667-17.066667 59.733333 0z" fill="#185ABD"/>
+          <path d="M968.533333 315.733333L439.466667 840.533333c-17.066667 17.066667-42.666667 17.066667-59.733334 0L262.4 725.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333L791.466667 140.8c17.066667-17.066667 42.666667-17.066667 59.733333 0l117.333333 115.2c17.066667 17.066667 17.066667 42.666667 0 59.733333z" fill="#41A5EE"/>
+        </svg>
+      </span>
+      <span class="menu-text">Copy Todo</span>
+    </button>
+    <button id="closeTodoBtn" class="side-button">❌</button>
+  </div>
   
   <div id="status" class="status"></div>
   
